@@ -46,6 +46,7 @@ const getDateTime = (dt) => {
 
 // Show loading state
 function showLoading() {
+  loadingMsg.textContent = "Loading...";
   weatherBody.style.display = 'none';
   loadingMsg.style.display = 'block';
 }
