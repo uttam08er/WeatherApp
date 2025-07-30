@@ -151,6 +151,10 @@ input::placeholder {
 }
 
 @media (max-width: 630px) {
+  body {
+    height: auto;
+    padding: 1.5rem 0;
+  }
   .container {
     width: 90%;
   }
@@ -163,6 +167,7 @@ input::placeholder {
 @media (max-width: 400px) {
   body {
     height: auto;
+    padding: 1rem 0;
   }
 
   input{
