@@ -4,37 +4,40 @@
 
 - Select DOM elements for displaying weather information using appropriate query selectors.
 
-## Step 2: Fetch Weather Data
+## Step 2: Get user location by user permission
+- Use the Geolocation API to get the user's location with their permission.
+
+## Step 3: Fetch Weather Data
 
 - Define a function to fetch weather data from the OpenWeatherMap API using the `fetch` API.
 - Extract relevant data from the API response such as temperature, humidity, wind speed, etc.
 
-## Step 3: Review API Data
+## Step 4: Review API Data
 
 - Review the structure of the API response to understand the data available for display.
 
-## Step 4: Display City Name
+## Step 5: Display City Name
 
 - Display the city name along with its country code using the provided API data.
 
-## Step 5: Format Date and Time
+## Step 6: Format Date and Time
 
 - Format the timestamp provided by the API into a human-readable date and time format.
 
-## Step 6: Display Additional Weather Details
+## Step 7: Display Additional Weather Details
 
 - Display additional weather details such as temperature, minimum and maximum temperature, feels like temperature, humidity, wind speed, and pressure.
 
-## Step 7: Handle City Search
+## Step 8: Handle City Search
 
 - Implement functionality to allow users to search for weather information of different cities.
 - Add event listeners to handle city search input and trigger the weather data fetching function accordingly.
 
-## Step 8: Add Styling (Optional)
+## Step 9: Add Styling (Optional)
 
 - Apply CSS styling to the weather display elements to improve the visual presentation of weather information.
 
-## Step 9: Error Handling (Optional)
+## Step 10: Error Handling (Optional)
 
 - Implement error handling mechanisms to gracefully handle errors that may occur during the API request or data processing.
 
@@ -53,10 +56,3 @@
 <!-- The .of(country) method is immediately called on the Intl.DisplayNames object to retrieve the country name corresponding to the provided country code. -->
 
 <!-- The Unicode character &#176; represents the degree symbol (°). In HTML, it is used to display temperature values, angles, or other measurements in degrees. -->
-
-<!-- // search the city
-citySearch.addEventListener("change", (e) => {
-  //   console.log(e.target.value);
-  city = e.target.value;
-  getWeatherData();
-}); -->
