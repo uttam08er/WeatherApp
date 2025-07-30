@@ -89,7 +89,7 @@ searchIcon.addEventListener("click", () => {
   showLoading();
   let cityName = document.querySelector(".city_name");
   console.log(cityName.value);
-  city = cityName.value;
+  city = cityName.value.trim();
   getWeatherByCity(city);
   cityName.value = "";
 });
