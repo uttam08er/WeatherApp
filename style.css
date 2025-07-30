@@ -160,7 +160,7 @@ input::placeholder {
     height: auto;
   }
   .container{
-    margin: 2rem;
+    gap: 3rem;
   }
   .weather_info {
     grid-template-columns: none;
