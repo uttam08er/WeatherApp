@@ -37,20 +37,6 @@ body {
   align-items: center;
 }
 
-input {
-  border: none;
-  background: #1e1e1e;
-  color: #fff;
-  outline: none;
-  /* width: 230px; */
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-}
-
-input::placeholder {
-  color: #f7f7f7;
-}
 
 .weather_search {
   position: relative;
@@ -65,16 +51,36 @@ input::placeholder {
   color: #fff;
 }
 
-.main_data{
+input {
+  display: block;
+  border: none;
+  background: #1e1e1e;
+  color: #fff;
+  outline: none;
+  min-width: 100px;
+  padding: 0.5rem 1rem;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+input::placeholder {
+  color: #f7f7f7;
+}
+
+.main_data {
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 300px;
 }
 
-.loading_msg{
+.loading_msg {
   text-align: center;
-  padding: 1rem ;
+  padding: 1rem;
   white-space: pre-line;
 }
 
@@ -157,9 +163,10 @@ input::placeholder {
 }
 
 @media (max-width: 400px) {
-  body{
+  body {
     height: auto;
   }
+
   /* input{
     width: 90%;
   } */
