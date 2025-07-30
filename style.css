@@ -64,7 +64,21 @@ input::placeholder {
   color: #fff;
 }
 
+.main_data{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+}
+
+.loading_msg{
+  text-align: center;
+  padding: 1rem ;
+  white-space: pre-line;
+}
+
 .weather_body {
+  display: block;
   text-align: center;
 }
 
@@ -109,7 +123,6 @@ input::placeholder {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 1rem;
-  /* margin-top: 3rem; */
 }
 
 .weather_card {

@@ -14,7 +14,6 @@
 <body>
   <section class="container">
     <!-- input field search  -->
-    <!-- <div class="search-bar"> -->
     <div class="weather_header">
       <form class="weather_search">
         <input type="text" class="city_name" placeholder="search your city..." />
@@ -22,17 +21,20 @@
       </form>
     </div>
     <!-- weather main data -->
-    <div class="weather_body">
-      <h1 class="weather_city"></h1>
-      <p class="weather_date_time"></p>
-      <div class="weather_data">
-        <p class="weather_forecast"></p>
-        <div class="weather_icon"></div>
-      </div>
-      <p class="weather_temperature"></p>
-      <div class="weather_minmax">
-        <p class="weather_min"></p>
-        <p class="weather_max"></p>
+    <div class="main_data">
+      <div class="loading_msg">Loading...</div>
+      <div class="weather_body">
+        <h1 class="weather_city"></h1>
+        <p class="weather_date_time"></p>
+        <div class="weather_data">
+          <p class="weather_forecast"></p>
+          <div class="weather_icon"></div>
+        </div>
+        <p class="weather_temperature"></p>
+        <div class="weather_minmax">
+          <p class="weather_min"></p>
+          <p class="weather_max"></p>
+        </div>
       </div>
     </div>
     <!-- weather extra data  -->
@@ -44,7 +46,7 @@
           <p class="weather_feelsLike">__&#176 C</p>
         </div>
       </div>
-      
+
       <div class="weather_card">
         <i class="fa-solid fa-droplet"></i>
         <div>

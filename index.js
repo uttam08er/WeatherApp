@@ -1,6 +1,8 @@
 const citySearch = document.querySelector(".weather_search");
 const searchIcon = document.querySelector(".fa-magnifying-glass");
 
+const loadingMsg = document.querySelector(".loading_msg");
+const weatherBody = document.querySelector(".weather_body");
 const cityName = document.querySelector(".weather_city");
 const dateTime = document.querySelector(".weather_date_time");
 const w_forecast = document.querySelector(".weather_forecast");
@@ -18,7 +20,6 @@ const API_KEY = '7ac31eec30f29d9863e5ba0ce854b006';
 const API_URL = 'https://api.openweathermap.org/data/2.5/weather';
 
 let city = "";
-
 
 
 // to get the actual country name
@@ -45,30 +46,28 @@ const getDateTime = (dt) => {
 
 // Show loading state
 function showLoading() {
-  loading.style.display = 'block';
-  error.style.display = 'none';
-  // weatherInfo.classList.remove('show');
+  weatherBody.style.display = 'none';
+  loadingMsg.style.display = 'block';
 }
 
 // Hide loading state
 function hideLoading() {
-  loading.style.display = 'none';
+  weatherBody.style.display = 'block';
+  loadingMsg.style.display = 'none';
 }
 
 // Show error message
 function showError(message) {
-  error.textContent = message;
-  error.style.display = 'block';
-  hideLoading();
+  loadingMsg.textContent = message;
+  loadingMsg.style.display = 'block';
+  weatherBody.style.display = 'none';
 }
 
 // Get weather by coordinates
 async function getWeatherByCoords(lat, lon) {
   const url = `${API_URL}?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`;
   try {
-    const data = await getWeatherData(url);
-    console.log(data);
-    displayWeatherData(data);
+    await getWeatherData(url);
   } catch (err) {
     showError(err.message);
   }
@@ -78,8 +77,7 @@ async function getWeatherByCoords(lat, lon) {
 async function getWeatherByCity(city) {
   const url = `${API_URL}?q=${city}&appid=${API_KEY}&units=metric`;
   try {
-    const data = await getWeatherData(url);
-    displayWeatherData(data);
+    await getWeatherData(url);
   } catch (err) {
     showError(err.message);
   }
@@ -87,6 +85,7 @@ async function getWeatherByCity(city) {
 
 // search functionality
 searchIcon.addEventListener("click", () => {
+  showLoading();
   let cityName = document.querySelector(".city_name");
   console.log(cityName.value);
   city = cityName.value;
@@ -105,6 +104,9 @@ const getWeatherData = async (url) => {
   try {
     const res = await fetch(weatherUrl);
     const data = await res.json();
+    if (!res.ok) {
+      showError(data.message);
+    }
     console.log(data);
 
     const { main, name, weather, wind, sys, dt } = data;
@@ -123,6 +125,7 @@ const getWeatherData = async (url) => {
     w_humidity.innerHTML = `${main.humidity} %`;
     w_wind.innerHTML = `${wind.speed} m/s`;
     w_pressure.innerHTML = `${main.pressure} hPa`;
+    hideLoading();
   } catch (error) {
     console.log(error);
   }
@@ -132,7 +135,7 @@ const getWeatherData = async (url) => {
 
 // Get user's current location
 const getCurrentLocation = async () => {
-  // showLoading();
+  showLoading();
   if (!navigator.geolocation) {
     showError('Geolocation is not supported by this browser');
     return;
@@ -148,11 +151,11 @@ const getCurrentLocation = async () => {
 
     // Error callback
     function (error) {
-      let errorMessage = 'Unable to get your location. ';
+      let errorMessage = "";
 
       switch (error.code) {
         case error.PERMISSION_DENIED:
-          errorMessage += 'Location access denied by user.';
+          errorMessage += 'Location access denied by user.\n Please try searching weather using city name. ';
           break;
         case error.POSITION_UNAVAILABLE:
           errorMessage += 'Location information unavailable.';
