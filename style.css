@@ -52,12 +52,11 @@ body {
 }
 
 input {
-  display: block;
   border: none;
   background: #1e1e1e;
   color: #fff;
   outline: none;
-  min-width: 100px;
+  /* width: 230px; */
   padding: 0.5rem 1rem;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   border-radius: 5px;
@@ -167,9 +166,9 @@ input::placeholder {
     height: auto;
   }
 
-  /* input{
-    width: 90%;
-  } */
+  input{
+    width: 180px;
+  }
   .weather_info {
     grid-template-columns: none;
   }
